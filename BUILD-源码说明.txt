@@ -1,0 +1,19 @@
+boss-plugin 源码说明
+====================
+
+这是 boss-plugin v0.6 的完整源码，不是可直接加载的扩展。
+
+构建步骤：
+1) 环境：Node.js 18+ 与 bun（https://bun.sh）
+2) bun install
+   若 packages/devlog-ui 为空：git clone --depth 1 https://github.com/Ocyss/devlog-ui packages/devlog-ui
+3) bun run build:chrome   （或 build:firefox）
+   产物：.output/chrome-mv3
+4) chrome://extensions → 开发者模式 → 加载已解压的扩展程序 → 选择 .output/chrome-mv3
+
+主要目录：
+  src/entrypoints/boss/      boss 页面逻辑（注入、筛选管线、翻页）
+  src/composables/           配置、工作流、主题、数据模型
+  src/components/            界面组件
+  src/utils/city.ts          城市编号筛选与旧配置迁移
+  src/utils/bossCityData.ts  Boss 官方城市编号表（由接口生成）
